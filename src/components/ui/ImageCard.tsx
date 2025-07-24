@@ -8,9 +8,9 @@ type ImageCardProps = {
 
 const ImageCard = ({ img, title, alt }: ImageCardProps) => {
   return (
-    <div className="flex flex-col gap-3">
-      <p>{title}</p>
-      <Image src={img} alt={alt || title} width={100} height={100} />
+    <div className="flex flex-col gap-3 h-screen py-5">
+      <p>{title}</p> 
+      <Image src={img} alt={alt || title} className="w-full h-screen rounded-3xl object-cover" />
     </div>
   );
 };
