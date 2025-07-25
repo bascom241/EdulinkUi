@@ -11,8 +11,8 @@ export interface FormData {
     teachingSubjects:string [], 
     TeachingLevel: string,
     shortBio: string,
-    yearsOfExperience: number, 
-    certificate: string, 
+    yearsOfExperience: string, 
+    certificate: File | null, 
     governmentId: string, 
     socialLinks: string,
     backAccount:string 
@@ -20,7 +20,7 @@ export interface FormData {
 
 interface MultiFormProps {
     data: FormData
-    handleChange: (field: keyof FormData, value: string | string []) => void
+    handleChange: (field: keyof FormData, value: string | string[] | File | null) => void
     currentStep: number
     maxFormLength: number
     goToNextPage: (page: string) => void
@@ -42,8 +42,8 @@ export const multiForm = create<MultiFormProps>((set, get) => ({
         teachingSubjects: [], // Required
         TeachingLevel: "", // Required (waec // neco // jamb // home teacher // private school teacher)
         shortBio: "", // Required
-        yearsOfExperience: 0, // Required
-        certificate: "", // Optional
+        yearsOfExperience: "", // Required
+        certificate:  null, // Optional
         governmentId: "", // Optional
         socialLinks: "", // optional
         backAccount: "" // Required 
@@ -53,7 +53,7 @@ export const multiForm = create<MultiFormProps>((set, get) => ({
         set((state) => ({
             data: {
                 ...state.data,
-                [field]: field === "yearsOfExperience" ? Number(value) : field === "teachingSubjects" ? Array.isArray(value) ? value  : [value] : value
+                [field]: field === "teachingSubjects" ? Array.isArray(value) ? value  : [value] : value
             }
         })),
 
