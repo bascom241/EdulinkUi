@@ -2,6 +2,8 @@
 import { create } from "zustand";
 import toast from "react-hot-toast";
 export interface FormData {
+    student:boolean
+    teacher:boolean
     email: string
     password: string
     confirmPassword: string
@@ -18,9 +20,9 @@ export interface FormData {
     backAccount:string 
 }
 
-interface MultiFormProps {
+export interface MultiFormProps {
     data: FormData
-    handleChange: (field: keyof FormData, value: string | string[] | File | null) => void
+    handleChange: (field: keyof FormData, value: string | string[] | File | boolean | null ) => void
     currentStep: number
     maxFormLength: number
     goToNextPage: (page: string) => void
@@ -33,6 +35,8 @@ export const multiForm = create<MultiFormProps>((set, get) => ({
     currentStep: 0,
     maxFormLength: 4,
     data: {
+        student:false,
+        teacher:false,
         email: "", // Required
         password: "", // Required
         confirmPassword: "", // Required
