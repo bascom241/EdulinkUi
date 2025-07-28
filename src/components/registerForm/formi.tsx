@@ -5,7 +5,7 @@ import FormInput from '../ui/FormInput'
 import { multiForm } from '@/store/multiForm'
 import FormButton from '../ui/FormButton'
 import { usePageRouter } from '../../../hooks/useRouter'
-const Form1 = () => {
+const FormI = () => {
 
     const { handleChange, data, goToNextPage, goToPrevPage, maxFormLength } = multiForm();
 
@@ -47,10 +47,10 @@ const Form1 = () => {
                 flexLayout='flex items-center justify-center mt-8 '
                 spacing="px-8 py-3"
                 width={100}
-                next={()=> handlePageRouting("/step2")}
+                next={()=> handlePageRouting("/stepii")}
             />
         </section>
     )
 }
 
-export default Form1
+export default FormI

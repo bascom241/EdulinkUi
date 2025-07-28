@@ -11,7 +11,16 @@ const Form0 = () => {
 
     const { handleChange, data, goToNextPage, goToPrevPage, maxFormLength } = multiForm();
 
-    const { handlePageRouting } = usePageRouter()
+    const { handlePageRouting } = usePageRouter();
+
+
+    const handleRedirectingUser = () => {
+        if(data?.teacher){
+            handlePageRouting("/step1")
+        } else {
+            handlePageRouting("/stepi")
+        }
+    }
 
     return (
         <section className='w-full sm:w-[70%] flex flex-col items-center justify-center gap-4'>
@@ -24,11 +33,11 @@ const Form0 = () => {
                 handleChange={handleChange}
             />
             <FormButton
-            buttonText={"Get Started"}
+                buttonText={"Get Started"}
                 flexLayout='flex items-center justify-center mt-2'
                 spacing="px-4 py-3"
                 width={70}
-                next={()=> handlePageRouting("/step1")}
+                next={handleRedirectingUser}
             />
 
         </section>

@@ -34,7 +34,7 @@ const Form3 = () => {
                 All documents and personal data provided are securely stored and protected. We’re committed to maintaining your privacy and building trust through transparency.
             </p>
             <FormButton
-                buttonText={"Next"}
+                buttonText={"Send Verification Code"}
                 flexLayout='flex items-center justify-center mt-8 '
                 spacing="px-8 py-3"
                 width={100}
